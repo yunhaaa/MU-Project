@@ -1,0 +1,354 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mapper-muproject">
+
+<!-- 	<select id="getListAddrBook" resultType="muproject.vo.AddrBook"> -->
+<!-- 		select * -->
+<!-- 		from addrbook -->
+<!-- 	</select> -->
+
+
+
+	<!-- ab.abId = rs.getInt("Id"); -->
+	<!-- ab.abName = rs.getString("abname"); -->
+	<!-- ab.abEmail = rs.getString("abemail"); -->
+	<!-- ab.abBirth = rs.getString("abbirth"); -->
+	<!-- ab.abTel = rs.getString("abtel"); -->
+	<!-- ab.abComdept = rs.getString("abcomdept"); -->
+	<!-- ab.abMemo = rs.getString("abmemo"); -->
+
+
+	<select id="getUserById" parameterType="String"
+		resultType="muproject.vo.Users">
+		select * from users where id = #{id}
+	</select>
+
+
+
+<!-- 	<insert id="insertAddrBook" -->
+<!-- 		parameterType="muproject.vo.AddrBook"> -->
+<!-- 		insert into addrbook(abname, abemail, abtel, abbirth, -->
+<!-- 		abcomdept, abmemo) -->
+<!-- 		values(#{abName},#{abEmail},#{abTel},#{abBirth},#{abComdept},#{abMemo}) -->
+<!-- 	</insert> -->
+
+<!-- 	<select id="getAddrBookById" resultType="muproject.vo.AddrBook" -->
+<!-- 		parameterType="int"> -->
+<!-- 		select * -->
+<!-- 		from addrbook -->
+<!-- 		where ab_id = #{abId} -->
+<!-- 	</select> -->
+
+<!-- 	<update id="editAddrBookById" -->
+<!-- 		parameterType="muproject.vo.AddrBook"> -->
+<!-- 		update addrbook set abName = #{abName}, abEmail = #{abEmail}, abTel  -->
+<!-- 			= #{abTel}, abBirth = #{abBirth}, abComdept = #{abComdept}, abMemo = #{abComdept}  -->
+<!-- 			where ab_Id = #{abId}  -->
+
+<!-- 		update addrbook -->
+
+<!-- 		<set> -->
+<!-- 			<if test="abName != null">abName=#{abName},</if> -->
+<!-- 			<if test="abEmail != null">abEmail=#{abEmail},</if> -->
+<!-- 			<if test="abTel != null">abTel=#{abTel},</if> -->
+<!-- 			<if test="abBirth != null">abBirth=#{abBirth},</if> -->
+<!-- 			<if test="abComdept != null">abComdept=#{abComdept},</if> -->
+<!-- 			<if test="abMemo != null">abMemo=#{abMemo} where</if> -->
+<!-- 			<if test="abId != null">ab_id=#{abId}</if> -->
+<!-- 		</set> -->
+
+<!-- 	</update> -->
+
+	<select id="getListMyTeam" resultType="muproject.vo.MyTeam">
+		select *
+		from myteam;
+	</select>
+
+
+	<update id="updateMyTeamPlayer1" parameterType="int">
+		update myteam
+		set
+		player1_id = #{item}
+	</update>
+	<update id="updateMyTeamPlayer2" parameterType="int">
+		update myteam
+		set
+		player2_id = #{item}
+	</update>
+	<update id="updateMyTeamPlayer3" parameterType="int">
+		update myteam
+		set
+		player3_id = #{item}
+	</update>
+	<update id="updateMyTeamPlayer4" parameterType="int">
+		update myteam
+		set
+		player4_id = #{item}
+	</update>
+	<update id="updateMyTeamPlayer5" parameterType="int">
+		update myteam
+		set
+		player5_id = #{item}
+	</update>
+	<update id="updateMyTeamPlayer6" parameterType="int">
+		update myteam
+		set
+		player6_id = #{item}
+	</update>
+	<update id="updateMyTeamPlayer7" parameterType="int">
+		update myteam
+		set
+		player7_id = #{item}
+	</update>
+	<update id="updateMyTeamPlayer8" parameterType="int">
+		update myteam
+		set
+		player8_id = #{item}
+	</update>
+	<update id="updateMyTeamPlayer9" parameterType="int">
+		update myteam
+		set
+		player9_id = #{item}
+	</update>
+	<update id="updateMyTeamPlayer10" parameterType="int">
+		update myteam
+		set player10_id = #{item}
+	</update>
+	<update id="updateMyTeamPlayer11" parameterType="int">
+		update myteam
+		set player11_id = #{item}
+	</update>
+
+<!-- 	<delete id="deleteAddrBookById" parameterType="int"> -->
+<!-- 		delete from -->
+<!-- 		addrbook where ab_id = #{abId} -->
+<!-- 	</delete> -->
+
+
+	<select id="countlogin" parameterType="muproject.vo.Login"
+		resultType="int">
+		select count(*) from users where id = #{id} and password =
+		#{pw}
+	</select>
+
+	<insert id="insertlogin" parameterType="muproject.vo.Login">
+		insert into users(id,
+		password, name, mobile, email, nickname) values (#{id}, #{pw},
+		#{name},#{mobile},#{email}, #{nickname});
+	</insert>
+
+	<select id="usersById" parameterType="muproject.vo.Login"
+		resultType="muproject.vo.Login">
+		select * from users where id = #{id}
+	</select>
+
+	<select id="getListPlayers" resultType="muproject.vo.Players">
+		select *
+		from players;
+	</select>
+
+	<select id="getListPlayersDetail" parameterType="int"
+		resultType="muproject.vo.Players">
+		select *
+		from players
+		where player_id = #{item};
+	</select>
+
+	<select id="getPlayersById" parameterType="int"
+		resultType="muproject.vo.Players">
+		select *
+		from players
+		where player_id = #{item};
+	</select>
+
+
+	<select id="getPlayerPhotoById" parameterType="int"
+		resultType="muproject.vo.Players">
+		select player_name, player_image
+		from players
+		where player_id
+		= #{selectedPlayer};
+
+	</select>
+
+
+	<select id="getListBoard" resultType="muproject.vo.Board">
+		select * from board;
+	</select>
+
+	<select id="getBoardById" parameterType="int"
+		resultType="muproject.vo.Board">
+		select * from board where board_id = #{boardId};
+	</select>
+	
+	<select id="getEveryTeamById" parameterType="int"
+		resultType="muproject.vo.EveryTeam">
+		select * from everyteam where team_id = #{teamid};
+	</select>
+
+	<select id="getListPlayersByBoardId" parameterType="int"
+		resultType="muproject.vo.Players">
+		SELECT *
+		FROM board b
+		INNER JOIN everyteam et ON b.everyteam_team_id =
+		et.team_id
+		INNER JOIN players p ON (
+		p.player_id = et.player1_id OR
+		p.player_id = et.player2_id OR
+		p.player_id = et.player3_id OR
+		p.player_id = et.player4_id OR
+		p.player_id = et.player5_id OR
+		p.player_id = et.player6_id OR
+		p.player_id = et.player7_id OR
+		p.player_id = et.player8_id OR
+		p.player_id = et.player9_id OR
+		p.player_id = et.player10_id OR
+		p.player_id = et.player11_id
+		)
+		WHERE
+		b.board_id = #{boardId};
+
+	</select>
+
+	<insert id="insertEveryTeam"
+		parameterType="muproject.vo.EveryTeam">
+		insert into everyteam(formation, player1_id, player2_id,
+		player3_id, player4_id, player5_id, player6_id, player7_id,
+		player8_id, player9_id, player10_id, player11_id, users_id)
+		values
+		(#{formation}, #{player1Id}, #{player2Id}, #{player3Id}, #{player4Id},
+		#{player5Id}, #{player6Id}, #{player7Id}, #{player8Id}, #{player9Id},
+		#{player10Id}, #{player11Id}, #{usersId});
+	</insert>
+
+
+
+	<select id="getBoardPlayer1" parameterType="String"
+		resultType="muproject.vo.Players">
+		select * from players where player_id = (SELECT player1_id
+		FROM everyteam WHERE users_id = #{usersId} ORDER BY team_id DESC LIMIT
+		1);
+
+	</select>
+
+	<select id="getBoardPlayer2" parameterType="String"
+		resultType="muproject.vo.Players">
+		select * from players where player_id = (SELECT player2_id
+		FROM everyteam WHERE users_id = #{usersId} ORDER BY team_id DESC LIMIT
+		1);
+
+	</select>
+	<select id="getBoardPlayer3" parameterType="String"
+		resultType="muproject.vo.Players">
+		select * from players where player_id = (SELECT player3_id
+		FROM everyteam WHERE users_id = #{usersId} ORDER BY team_id DESC LIMIT
+		1);
+
+	</select>
+	<select id="getBoardPlayer4" parameterType="String"
+		resultType="muproject.vo.Players">
+		select * from players where player_id = (SELECT player4_id
+		FROM everyteam WHERE users_id = #{usersId} ORDER BY team_id DESC LIMIT
+		1);
+
+	</select>
+	<select id="getBoardPlayer5" parameterType="String"
+		resultType="muproject.vo.Players">
+		select * from players where player_id = (SELECT player5_id
+		FROM everyteam WHERE users_id = #{usersId} ORDER BY team_id DESC LIMIT
+		1);
+
+	</select>
+	<select id="getBoardPlayer6" parameterType="String"
+		resultType="muproject.vo.Players">
+		select * from players where player_id = (SELECT player6_id
+		FROM everyteam WHERE users_id = #{usersId} ORDER BY team_id DESC LIMIT
+		1);
+
+	</select>
+	<select id="getBoardPlayer7" parameterType="String"
+		resultType="muproject.vo.Players">
+		select * from players where player_id = (SELECT player7_id
+		FROM everyteam WHERE users_id = #{usersId} ORDER BY team_id DESC LIMIT
+		1);
+
+	</select>
+	<select id="getBoardPlayer8" parameterType="String"
+		resultType="muproject.vo.Players">
+		select * from players where player_id = (SELECT player8_id
+		FROM everyteam WHERE users_id = #{usersId} ORDER BY team_id DESC LIMIT
+		1);
+
+	</select>
+	<select id="getBoardPlayer9" parameterType="String"
+		resultType="muproject.vo.Players">
+		select * from players where player_id = (SELECT player9_id
+		FROM everyteam WHERE users_id = #{usersId} ORDER BY team_id DESC LIMIT
+		1);
+
+	</select>
+	<select id="getBoardPlayer10" parameterType="String"
+		resultType="muproject.vo.Players">
+		select * from players where player_id = (SELECT player10_id
+		FROM everyteam WHERE users_id = #{usersId} ORDER BY team_id DESC LIMIT
+		1);
+
+	</select>
+	<select id="getBoardPlayer11" parameterType="String"
+		resultType="muproject.vo.Players">
+		select * from players where player_id = (SELECT player11_id
+		FROM everyteam WHERE users_id = #{usersId} ORDER BY team_id DESC LIMIT
+		1);
+	</select>
+
+	<select id="getTeamIdByUserIdNewest" parameterType="String"
+		resultType="int">
+		select team_id from everyteam where users_id = #{usersId}
+		order by team_id
+		DESC LIMIT 1;
+	</select>
+
+	<insert id="insertBoard" parameterType="muproject.vo.Board">
+		insert into
+		board(board_title, article, users_id, everyteam_team_id)
+		values(#{boardTitle}, #{article}, #{usersId}, #{everyTeamTeamId})
+	</insert>
+
+	<select id="getListCommentsByBoardId" parameterType="int"
+		resultType="muproject.vo.Comments">
+		select * from comments where board_board_id =
+		#{boardBoardId}
+	</select>
+
+	<insert id="insertComments"
+		parameterType="muproject.vo.Comments">
+		insert into comments(board_board_id, comment_text,
+		post_time,
+		users_nickname) values (#{boardBoardId}, #{commentText},
+		#{postTime,
+		jdbcType=TIMESTAMP}, #{usersNickName});
+	</insert>
+
+	<delete id="deleteBoard" parameterType="int">
+		delete from board where
+		board_id = #{boardId};
+	</delete>
+
+	<update id="editBoard" parameterType="muproject.vo.Board">
+		update board
+		<set>
+			<if test="boardTitle != null">board_title = #{boardTitle},</if>
+			<if test="article != null">article = #{article},</if>
+			<if test="boardId != null">board_id=#{boardId},</if>
+
+		</set>
+		where board_id = #{boardId}
+	</update>
+	
+	<select id="selectIdFromUsersUnique" parameterType="String" resultType="int">
+		select count(*) from users where id=#{id}
+	</select>
+
+
+
+</mapper>

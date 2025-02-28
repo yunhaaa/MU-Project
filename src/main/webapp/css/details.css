@@ -1,0 +1,192 @@
+@CHARSET "UTF-8";
+
+
+table {
+  margin: 0 auto; /* 가로 가운데 정렬 */
+}
+
+#btns {
+    text-align: center;
+}
+
+#btns .btn {
+    margin: 0 10px; /* 각 버튼 사이의 간격 조절 */
+}
+
+form {
+    margin-top: 20px; /* 위쪽 마진 크기를 조절할 수 있습니다. */
+}
+
+#popupButton{
+   background-color: rgb(199, 1, 1);
+   color: white;
+   /* 선택적으로 텍스트 색상을 흰색으로 설정하여 가시성을 높일 수 있습니다. */
+}
+#chartbox{
+   width: 500px; background-color:rgba(192,192,192,0.2);
+}
+#imgBox{
+   border: solid 2px  rgb(26, 26, 26);
+}
+
+#profileBox{
+    display: flex;
+  flex-direction: column; /* 세로 중앙 정렬을 위한 컬럼 방향 설정 */
+  justify-content: center; /* 세로 중앙 정렬 */
+  align-items: center; /* 가로 중앙 정렬 */
+}
+#detailDiv{
+   background-color:rgba(192,192,192,0.2);
+   border: solid 3px rgb(26, 26, 26); margin: 30px;
+}
+
+body{
+   background-color:rgba(192,192,192,0.2);
+}
+
+#info-center {
+   text-align: center;
+}
+
+
+#infobox{
+   text-align: center;
+   display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 250px;
+}
+
+.imgPlayer {
+  position: relative;
+  display: block;
+  background: linear-gradient(0deg, black, #444444);
+}
+
+.glowing::before{
+  content: '';
+  position: absolute;
+  left: -2px;
+  top: -2px;
+  background: linear-gradient(45deg, #e8f74d, #ff6600d9, #00ff66, #13ff13, #ad27ad, #bd2681, #6512b9, #ff3300de, #5aabde);
+  background-size: 400%;
+  width: calc(100% + 5px);
+  height: calc(100% + 5px);
+  z-index: 99;
+  animation: glower 20s linear infinite;
+}
+#centerBox{
+   text-align: center;
+
+}
+
+@keyframes glower {
+  0% {
+    background-position: 0 0;
+  }
+  
+  50% {
+    background-position: 400% 0;
+  }
+  
+  100% {
+    background-position: 0 0;
+  }
+}
+
+/*
+
+card 설정
+
+*/
+
+:root {
+  --rotate: 132deg;
+  --card-height: 65vh;
+  --card-width: calc(var(--card-height) / 1.5);
+}
+
+
+
+.card, #imgBox.card {
+  background: #191c29;
+  width: var(--card-width);
+  height: var(--card-height);
+  padding: 3px;
+  position: relative;
+  border-radius: 6px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  display: flex;
+  font-size: 1.5em;
+  color: rgb(88 199 250 / 0%);
+  cursor: pointer;
+  font-family: cursive;
+  z-index:99;
+}
+
+
+
+.card::before {
+  content: "";
+  width: 104%;
+  height: 102%;
+  border-radius: 8px;
+  background-image: linear-gradient(var(--rotate), #5ddcff,rgb(255, 255, 0),rgb(199, 1, 1));
+  position: absolute;
+  z-index: -1;
+  top: -1%;
+  left: -2%;
+  animation: spin 2.5s linear infinite;
+}
+
+.card::after {
+  position: absolute;
+  content: "";
+  top: calc(var(--card-height) / 6);
+  left: 0;
+  right: 0;
+  z-index: -1;
+  height: 100%;
+  width: 100%;
+  margin: 0 auto; 
+  transform: scale(0.8);
+  filter: blur(calc(var(--card-height) / 6));
+  background-image: linear-gradient(var(--rotate), #5ddcff,rgb(255, 255, 0),rgb(199, 1, 1));
+  opacity: 1;
+  transition: opacity .5s;
+  animation: spin 2.5s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    --rotate: 0deg;
+  }
+  100% {
+    --rotate: 360deg;
+  }
+}
+
+
+
+#imgBox.card {
+    background: #191c29;
+  width: var(--card-width);
+  height: var(--card-height);
+  padding: 3px;
+  position: relative;
+  border-radius: 6px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  display: flex;
+  font-size: 1.5em;
+  color: rgb(88 199 250 / 0%);
+  cursor: pointer;
+  font-family: cursive;
+}
+
+
+
